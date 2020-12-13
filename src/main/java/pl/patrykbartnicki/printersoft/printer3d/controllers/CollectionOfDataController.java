@@ -21,15 +21,15 @@ public class CollectionOfDataController extends TimeStarter {
     private TurnOffThePrinterController turnOffThePrinterController;
 
 
-    @GetMapping("/hello")
+    @GetMapping("/data")
     public String get(Model model){
 
-        model.addAttribute("extruderPosition", extruderPositionController.get());
-        model.addAttribute("humidity", humiditiController.get());
-        model.addAttribute("lightStatus", lightInWorkspaceController.get());
-        model.addAttribute("temperatures", temperatureController.get());
-        model.addAttribute("turnOffThePrinter" ,turnOffThePrinterController.get());
-        model.addAttribute("time", new TimeStarter() {
+        model.addAttribute("extruderPositions", extruderPositionController.get());
+        model.addAttribute("humiditys", humiditiController.get());
+        model.addAttribute("lightStatuss", lightInWorkspaceController.get());
+        model.addAttribute("temperaturess", temperatureController.get());
+        model.addAttribute("turnOffThePrinters" ,turnOffThePrinterController.get());
+        model.addAttribute("times", new TimeStarter() {
             @Override
             public LocalDateTime getLocalTime() {
                 return super.getLocalTime();
