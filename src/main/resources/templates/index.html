@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+          crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+          integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
+          crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+
+    <title>Main Data Page</title>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h1 class="panel-title">Data</h1>
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                        <table class="table table-bordered">
+                            <thead class="thead-inverse">
+
+                                <tr>
+                                    <th>ID of data</th>
+                                    <th>Position on X axis</th>
+                                    <th>Position on Y axis</th>
+                                    <th>Position on Z axis</th>
+                                </tr>
+                                <tr th:each="">
+                                    <td th:text="${}">101</td>
+                                    <td th:text="${}">123</td>
+                                    <td th:text="${}">321</td>
+                                    <td th:text="${}">213</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                    <p>Position:</p>
+                    <p><input type="text" placeholder="Oś X"></p>
+                    <p><input type="text" placeholder="Oś Y"></p>
+                    <p><input type="text" placeholder="Oś Z"></p>
+                    <p><input type="submit" value="Add new extruder position"></p>
+                    <p>Light status:</p>
+                    <p>
+                        <input type="button" value="ON">
+                        <input type="button" value="OFF">
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
