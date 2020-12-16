@@ -42,11 +42,11 @@
                                     <th>Position on Y axis</th>
                                     <th>Position on Z axis</th>
                                 </tr>
-                                <tr th:each="">
-                                    <td th:text="${}">101</td>
-                                    <td th:text="${}">123</td>
-                                    <td th:text="${}">321</td>
-                                    <td th:text="${}">213</td>
+                                <tr th:each="extruderPosition : ${extruderPosition}">
+                                    <td th:text="${extruderPosition.id}">101</td>
+                                    <td th:text="${extruderPosition.positionX}">123</td>
+                                    <td th:text="${extruderPosition.positionY}">321</td>
+                                    <td th:text="${extruderPosition.positionZ}">213</td>
                                 </tr>
                             </thead>
                         </table>
@@ -61,6 +61,10 @@
                     <p>
                         <input type="button" value="ON">
                         <input type="button" value="OFF">
+                    </p>
+
+                    <p>
+                        <input type="button" value="TURN OFF THE PRINTER">
                     </p>
 
                 </div>

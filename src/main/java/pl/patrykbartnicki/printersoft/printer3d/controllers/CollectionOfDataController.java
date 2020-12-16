@@ -21,14 +21,49 @@ public class CollectionOfDataController extends TimeStarter {
     private TurnOffThePrinterController turnOffThePrinterController;
 
 
-    @GetMapping("/data")
-    public String get(Model model){
+    @GetMapping("/extruderPositions")
+    public String getExtruderPositions(Model model){
 
         model.addAttribute("extruderPositions", extruderPositionController.get());
-        model.addAttribute("humiditys", humiditiController.get());
+
+        return "index";
+    }
+
+    @GetMapping("/humidity")
+    public String getHumidity(Model model){
+
+        model.addAttribute("humidity", humiditiController.get());
+
+        return "index";
+    }
+
+    @GetMapping("/lightStatuss")
+    public String getLightStatuss(Model model){
+
         model.addAttribute("lightStatuss", lightInWorkspaceController.get());
-        model.addAttribute("temperaturess", temperatureController.get());
+
+        return "index";
+    }
+
+    @GetMapping("/temperatures")
+    public String getTemperatures(Model model){
+
+        model.addAttribute("temperatures", temperatureController.get());
+
+        return "index";
+    }
+
+    @GetMapping("/turnOffThePrinters")
+    public String geTurnOffThePrinters(Model model){
+
         model.addAttribute("turnOffThePrinters" ,turnOffThePrinterController.get());
+
+        return "index";
+    }
+
+    @GetMapping("/times")
+    public String getTimes(Model model){
+
         model.addAttribute("times", new TimeStarter() {
             @Override
             public LocalDateTime getLocalTime() {
@@ -38,6 +73,8 @@ public class CollectionOfDataController extends TimeStarter {
 
         return "index";
     }
+
+
 
 
 }
