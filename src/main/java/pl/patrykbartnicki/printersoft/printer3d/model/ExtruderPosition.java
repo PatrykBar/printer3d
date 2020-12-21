@@ -1,10 +1,14 @@
 package pl.patrykbartnicki.printersoft.printer3d.model;
 
-import lombok.Data;
+import lombok.*;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document
 public class ExtruderPosition {
 
@@ -14,6 +18,8 @@ public class ExtruderPosition {
     private int positionX;
     private int positionY;
     private int positionZ;
+
+
 
     //Auto HOME
 

@@ -4,10 +4,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Document
 public class Temperatures {
 
@@ -17,6 +16,8 @@ public class Temperatures {
     float temperatureOfNozzle;
     float temperatureOfWorkspace;
     float temperatureOfTable;
+
+
 
     // get request for temperature of workspace
     // get request for temperature of nozzle

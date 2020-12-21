@@ -32,21 +32,19 @@
                 </div>
 
                 <div class="panel-body">
-                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(humiditys)}">
                         <table class="table table-bordered">
                             <thead class="thead-inverse">
 
                                 <tr>
                                     <th>ID of data</th>
-                                    <th>Position on X axis</th>
-                                    <th>Position on Y axis</th>
-                                    <th>Position on Z axis</th>
+                                    <th>Humidity into workspace</th>
+                                    <th>Humidity into drybox</th>
                                 </tr>
-                                <tr th:each="extruderPosition : ${extruderPosition}">
-                                    <td th:text="${extruderPosition.id}">101</td>
-                                    <td th:text="${extruderPosition.positionX}">123</td>
-                                    <td th:text="${extruderPosition.positionY}">321</td>
-                                    <td th:text="${extruderPosition.positionZ}">213</td>
+                                <tr th:each="humidity : ${humiditys}">
+                                    <td th:text="${humidity.id}">101</td>
+                                    <td th:text="${humidity.humidityOfWorkspace}">123</td>
+                                    <td th:text="${humidity.humidityOfDrybox}">321</td>
                                 </tr>
                             </thead>
                         </table>
