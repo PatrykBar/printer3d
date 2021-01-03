@@ -13,9 +13,9 @@ public class Temperatures {
     @Id
     private String id;
 
-    float temperatureOfNozzle;
-    float temperatureOfWorkspace;
-    float temperatureOfTable;
+    private float temperatureOfNozzle;
+    private float temperatureOfWorkspace;
+    private float temperatureOfTable;
 
 
 

@@ -7,19 +7,25 @@ import org.springframework.stereotype.Service;
 import pl.patrykbartnicki.printersoft.printer3d.model.Humidity;
 import pl.patrykbartnicki.printersoft.printer3d.repositories.HumidityRepository;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class HumidityServiceImpl implements HumidityService {
+public class HumidityServiceImpl implements HumidityService{
 
-    @Autowired
-    private final HumidityRepository humidityRepository;
+    private HumidityRepository humidityRepository;
 
-    @Override
     public Flux<Humidity> getHumidity() {
-        log.debug("I'm in the service");
+//        log.debug("I'm in the service");
         return humidityRepository.findAll();
     }
+
+//    public void addHumidity(Humidity humidity){
+////        Humidity humidity = new Humidity();
+////        humidity.setHumidityOfDrybox(humidityOfDrybox);
+////        humidity.setHumidityOfWorkspace(humidityOfWorkspace);
+//        humidityRepository.save(humidity);
+//    }
 
 }
