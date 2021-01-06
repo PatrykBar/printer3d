@@ -42,9 +42,9 @@
                                     <th>Humidity into drybox</th>
                                 </tr>
                                 <tr th:each="humidity : ${humiditys}">
-                                    <td th:text="${humidity.id}">101</td>
-                                    <td th:text="${humidity.humidityOfWorkspace}">123</td>
-                                    <td th:text="${humidity.humidityOfDrybox}">321</td>
+                                    <td th:text="${humidity.id}">ID</td>
+                                    <td th:text="${humidity.humidityOfWorkspace}">Humidity Of Workspace</td>
+                                    <td th:text="${humidity.humidityOfWorkspace}">Humidity Of Workspace</td>
                                 </tr>
                             </thead>
                         </table>
@@ -73,3 +73,22 @@
 
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
+<!--<head>-->
+<!--    <mate charset="UTF-8"></mate>-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<title>Title</title>-->
+<!--<table title="Data">-->
+<!--    <tr th:each="humidity : ${humiditys}">-->
+<!--        <td th:text="${humidity.id}">ID</td>-->
+<!--        <td th:text="${humidity.humidityOfWorkspace}">Humidity Of Workspace</td>-->
+<!--        <td th:text="${humidity.humidityOfWorkspace}">Humidity Of Workspace</td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->

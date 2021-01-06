@@ -5,8 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Document
 public class Temperatures {
 
@@ -16,8 +14,6 @@ public class Temperatures {
     private float temperatureOfNozzle;
     private float temperatureOfWorkspace;
     private float temperatureOfTable;
-
-
 
     // get request for temperature of workspace
     // get request for temperature of nozzle

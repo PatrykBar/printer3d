@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
 
 @Configuration
@@ -26,4 +25,5 @@ public class MongoConfig extends AbstractReactiveMongoConfiguration {
 
         return com.mongodb.reactivestreams.client.MongoClients.create(mongoClientSettings);
     }
+
 }
