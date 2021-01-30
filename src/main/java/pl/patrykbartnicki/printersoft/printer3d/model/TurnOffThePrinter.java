@@ -4,9 +4,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @Document
 public class TurnOffThePrinter {
 
@@ -14,8 +13,6 @@ public class TurnOffThePrinter {
     private String id;
 
     private boolean statusOfPrinter;
-
-
 
     // if temperature of nozzle/table/workspace is too high turn off printer
     // if button of turn off the printer is pressed sent another message with acceptation of turning off the printer

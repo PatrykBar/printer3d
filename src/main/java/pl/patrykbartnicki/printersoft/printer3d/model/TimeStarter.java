@@ -1,25 +1,22 @@
 package pl.patrykbartnicki.printersoft.printer3d.model;
 
-import lombok.Data;
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 
-
-@Data
+@Getter
 abstract public class TimeStarter {
-
-    @Id
-    private String id;
 
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime localTime;
 
-    public TimeStarter() {
-        this.localTime = LocalDateTime.now();
+    protected TimeStarter() {
+        this.localTime = LocalDateTime.now(ZoneId.ofOffset("UTC", ZoneOffset.ofHours(2)));
     }
 
 }

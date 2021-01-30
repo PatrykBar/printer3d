@@ -1,24 +1,24 @@
 package pl.patrykbartnicki.printersoft.printer3d.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.patrykbartnicki.printersoft.printer3d.service.HumidityServiceImpl;
+import pl.patrykbartnicki.printersoft.printer3d.service.TemperatureServiceImpl;
 
 @Controller
 @RequiredArgsConstructor
 public class CollectionOfDataController{
 
     private final HumidityServiceImpl humidityService;
+    private final TemperatureServiceImpl temperatureService;
 
-    @RequestMapping({"", "/", "/index"})
+    @GetMapping({"", "/", "/index"})
     public String getIndexPage(Model model){
 
         model.addAttribute("humiditys", humidityService.getHumidity());
-
+        model.addAttribute("temperature", temperatureService.getTemperatures());
         return "index";
     }
 

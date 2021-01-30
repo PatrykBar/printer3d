@@ -1,29 +1,55 @@
 package pl.patrykbartnicki.printersoft.printer3d.controllers;
 
-import org.springframework.http.MediaType;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import pl.patrykbartnicki.printersoft.printer3d.model.ExtruderPosition;
-import pl.patrykbartnicki.printersoft.printer3d.repositories.ExtruderPositionRepository;
-import reactor.core.publisher.Flux;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+import pl.patrykbartnicki.printersoft.printer3d.model.Position;
+import pl.patrykbartnicki.printersoft.printer3d.service.ExtruderPositionServiceImpl;
+import reactor.util.annotation.Nullable;
 
-import java.awt.*;
-
-@RestController
+@Slf4j
+@Controller
+@RequiredArgsConstructor
 public class ExtruderPositionController {
 
-    private ExtruderPositionRepository extruderPositionRepository;
+    private final ExtruderPositionServiceImpl extruderPositionService;
+    private WebDataBinder webDataBinder;
 
-    @GetMapping(value = "/extruderPosition/show", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
-    public Flux<ExtruderPosition> get(){ return extruderPositionRepository.findAll(); }
-
-    @GetMapping("/extruderPositions")
+    @GetMapping("/getExtruderPositions")
     public String getExtruderPositions(Model model){
 
-        model.addAttribute("extruderPositions", extruderPositionRepository.findAll());
+        model.addAttribute("getExtruderPositions", extruderPositionService.getExtruderPosition());
 
-        return "index";
+        return "extruderFiles/setExtruderPosition";
+    }
+
+    @GetMapping("/postPosition")
+    public String getForPost(Model model){
+
+        model.addAttribute("Position", new Position());
+
+        return "extruderFiles/setExtruderPosition";
+    }
+
+    @PostMapping("/postPosition")
+    public String setExtruderPosition(@ModelAttribute("Position") Position extruderPosition){
+
+//        webDataBinder.validate();
+//        BindingResult result = webDataBinder.getBindingResult();
+//
+//        if (result.hasErrors()){
+//            result.getAllErrors().forEach(objectError -> {log.debug(objectError.toString());});
+//            return "redirect:/400error";
+//        }else {
+
+            extruderPositionService.setExtruderPosition(extruderPosition);
+
+            return "extruderFiles/changePositionOk";
+//        }
     }
 
 }
