@@ -16,7 +16,7 @@ abstract public class TimeStarter {
     private LocalDateTime localTime;
 
     protected TimeStarter() {
-        this.localTime = LocalDateTime.now(ZoneId.ofOffset("UTC", ZoneOffset.ofHours(2)));
+        this.localTime = LocalDateTime.now(ZoneId.ofOffset("UTC", ZoneOffset.ofHours(1)));
     }
 
 }

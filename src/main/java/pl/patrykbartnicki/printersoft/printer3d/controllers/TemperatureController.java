@@ -4,7 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import pl.patrykbartnicki.printersoft.printer3d.model.Temperature;
 import pl.patrykbartnicki.printersoft.printer3d.service.TemperatureServiceImpl;
+import reactor.core.publisher.Flux;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor

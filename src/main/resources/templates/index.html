@@ -82,45 +82,69 @@
                                 <h1 class="panel-title">Data</h1>
                             </div>
 
-                            <div class="panel-body">
-                                <div class="table-responsive" th:if="${not #lists.isEmpty(humiditys)}">
-                                    <table class="table table-bordered">
-                                        <thead class="thead-inverse">
+<!--                            <div class="panel-body">-->
+<!--                                <div class="table-responsive" th:if="${not #lists.isEmpty(humiditys)}">-->
+<!--                                    <table class="table table-bordered">-->
+<!--                                        <thead class="thead-inverse">-->
 
-                                        <tr>
-                                            <th>Humidity into workspace</th>
-                                            <th>Humidity into drybox</th>
-                                        </tr>
-                                        <tr th:each="humidity : ${humiditys}">
-                                            <td th:text="${humidity.humidityOfWorkspace}">Humidity Of Workspace</td>
-                                            <td th:text="${humidity.humidityOfDrybox}">Humidity Of Workspace</td>
-                                        </tr>
+<!--                                        <tr>-->
+<!--                                            <th>Humidity into workspace</th>-->
+<!--                                            <th>Humidity into drybox</th>-->
+<!--                                        </tr>-->
+<!--                                        <tr th:each="humidity : ${humiditys}">-->
+<!--                                            <td th:text="${humidity.humidityOfWorkspace}">Humidity Of Workspace</td>-->
+<!--                                            <td th:text="${humidity.humidityOfDrybox}">Humidity Of Drybox</td>-->
+<!--                                        </tr>-->
 
-                                        </thead>
-                                    </table>
-                                </div>
+<!--                                        </thead>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <div class="panel-body" >
+
+                                Humidity Of Workspace <p id="humW"></p>
+                                Humidity Of Drybox <p id="humD"></p>
+
+                                <script th:inline="javascript" th:each="humidity : ${humiditys}">
+                                    document.getElementById("humW").innerHTML = /*[[${humidity.humidityOfWorkspace}]]*/;
+                                    document.getElementById("humD").innerHTML = /*[[${humidity.humidityOfDrybox}]]*/;
+                                </script>
                             </div>
 
+<!--                            <div class="panel-body">-->
+<!--                                <div class="table-responsive" th:if="${not #lists.isEmpty(humiditys)}">-->
+<!--                                    <table class="table table-bordered">-->
+<!--                                        <thead class="thead-inverse">-->
 
-                            <div class="panel-body">
-                                <div class="table-responsive" th:if="${not #lists.isEmpty(humiditys)}">
-                                    <table class="table table-bordered">
-                                        <thead class="thead-inverse">
+<!--                                        <tr>-->
+<!--                                            <th>Temperature of Nozzle</th>-->
+<!--                                            <th>Temperature of table</th>-->
+<!--                                            <th>Temperature into workspace</th>-->
+<!--                                        </tr>-->
+<!--                                        <tr th:each="temperatures : ${temperature}">-->
+<!--                                            <td th:text="${temperatures.temperatureOfNozzle}">Temp. of nozzle</td>-->
+<!--                                            <td th:text="${temperatures.temperatureOfTable}">Temp. of table</td>-->
+<!--                                            <td th:text="${temperatures.temperatureOfWorkspace}">Temp. into Workspace</td>-->
+<!--                                        </tr>-->
 
-                                        <tr>
-                                            <th>Temperature of Nozzle</th>
-                                            <th>Temperature of table</th>
-                                            <th>Temperature into workspace</th>
-                                        </tr>
-                                        <tr th:each="temperatures : ${temperature}">
-                                            <td th:text="${temperatures.temperatureOfNozzle}">Temp. of nozzle</td>
-                                            <td th:text="${temperatures.temperatureOfTable}">Temp. of table</td>
-                                            <td th:text="${temperatures.temperatureOfWorkspace}">Temp. into Workspace</td>
-                                        </tr>
+<!--                                        </thead>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                                        </thead>
-                                    </table>
-                                </div>
+
+                            <div class="panel-body" >
+
+                                Temp. of nozzle <p id="tempN"></p>
+                                Temp. of table <p id="tempT"></p>
+                                Temp. into Workspace <p id="tempW"></p>
+
+                                <script th:inline="javascript" th:each="temperatures : ${temperature}">
+                                    document.getElementById("tempN").innerHTML = /*[[${temperatures.temperatureOfNozzle}]]*/;
+                                    document.getElementById("tempT").innerHTML = /*[[${temperatures.temperatureOfTable}]]*/;
+                                    document.getElementById("tempW").innerHTML = /*[[${temperatures.temperatureOfWorkspace}]]*/;
+                                </script>
                             </div>
 
                         </div>

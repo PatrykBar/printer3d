@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 import pl.patrykbartnicki.printersoft.printer3d.model.Humidity;
 import pl.patrykbartnicki.printersoft.printer3d.service.HumidityServiceImpl;
+import pl.patrykbartnicki.printersoft.printer3d.service.TemperatureServiceImpl;
 import reactor.core.publisher.Flux;
 
 import java.util.HashSet;
@@ -25,12 +26,15 @@ class CollectionOfDataControllerTest {
     @Mock
     HumidityServiceImpl humidityServiceImpl;
 
+    @Mock
+    TemperatureServiceImpl temperatureService;
+
     CollectionOfDataController collectionOfDataController;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        collectionOfDataController = new CollectionOfDataController(humidityServiceImpl);
+        collectionOfDataController = new CollectionOfDataController(humidityServiceImpl, temperatureService);
     }
 
     @Test

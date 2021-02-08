@@ -37,24 +37,28 @@
     </header>
 
     <main>
-        <div class="row">
-            <div class="col">
-                <form action="#" th:action="@{/postPosition}" th:object="${Position}" method="post">
-                    <p>Position:</p>
-                    <p>
-                        <input type="number" min="1" th:field="*{positionX}" placeholder="Oś X" >
-                        <span th:if="${#fields.hasErrors('positionX')}"></span>
-                    </p>
-                    <p>
-                        <input type="number" min="1" th:field="*{positionY}" placeholder="Oś Y" >
-                        <span th:if="${#fields.hasErrors('positionY')}"></span>
-                    </p>
-                    <p>
-                        <input type="number" min="1" th:field="*{positionZ}" placeholder="Oś Z" >
-                        <span th:if="${#fields.hasErrors('positionZ')}"></span>
-                    </p>
-                    <p><input type="submit" value="Add new extruder position"></p>
-                </form>
+        <div class="container border" style="margin-top 20px">
+            <div class="row">
+                <div class="col">
+                    <div class="panel panel-primary">
+                        <form action="#" th:action="@{/postPosition}" th:object="${Position}" method="post">
+                            <p>Position:</p>
+                            <p>
+                                <input type="number" min="1" th:field="*{positionX}" placeholder="Oś X" >
+                                <span th:if="${#fields.hasErrors('positionX')}"></span>
+                            </p>
+                            <p>
+                                <input type="number" min="1" th:field="*{positionY}" placeholder="Oś Y" >
+                                <span th:if="${#fields.hasErrors('positionY')}"></span>
+                            </p>
+                            <p>
+                                <input type="number" min="1" th:field="*{positionZ}" placeholder="Oś Z" >
+                                <span th:if="${#fields.hasErrors('positionZ')}"></span>
+                            </p>
+                            <p><input type="submit" value="Add new extruder position"></p>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
