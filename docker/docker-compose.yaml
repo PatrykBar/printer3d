@@ -20,4 +20,4 @@ services:
       - 27017:27017
 
 networks:
-  patryknetwork:mongo contaienr ls
+  patryknetwork:
