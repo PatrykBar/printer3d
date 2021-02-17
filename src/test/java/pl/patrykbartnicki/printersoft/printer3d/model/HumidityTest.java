@@ -8,28 +8,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HumidityTest {
 
-    Humidity humidity;
-
-    @BeforeEach
-    void setUp() {
-        humidity = new Humidity();
-    }
-
-    @Test
-    void getId() throws Exception{
-        String idValue = "100";
-
-        humidity.setId(idValue);
-
-        assertEquals(idValue, humidity.getId());
-    }
-
-    @Test
-    void getHumidityOfWorkspace() throws Exception{
-    }
-
-    @Test
-    void getHumidityOfDrybox() throws Exception{
-    }
+//    Humidity humidity;
+//
+//    @BeforeEach
+//    void setUp() {
+////        humidity = new Humidity();
+//    }
+//
+//    @Test
+//    void getId() throws Exception{
+//        String idValue = "100";
+//
+//        humidity.setId(idValue);
+//
+//        assertEquals(idValue, humidity.getId());
+//    }
+//
+//    @Test
+//    void getHumidityOfWorkspace() throws Exception{
+//    }
+//
+//    @Test
+//    void getHumidityOfDrybox() throws Exception{
+//    }
 
 }

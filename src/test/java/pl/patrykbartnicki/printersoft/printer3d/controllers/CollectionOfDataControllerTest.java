@@ -20,42 +20,42 @@ import static org.mockito.Mockito.*;
 
 class CollectionOfDataControllerTest {
 
-    @Mock
-    Model model;
-
-    @Mock
-    HumidityServiceImpl humidityServiceImpl;
-
-    @Mock
-    TemperatureServiceImpl temperatureService;
-
-    CollectionOfDataController collectionOfDataController;
-
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-        collectionOfDataController = new CollectionOfDataController(humidityServiceImpl, temperatureService);
-    }
-
-    @Test
-    public void get_index_page() {
-
-        //Given
-
-        Humidity humidity = new Humidity();
-        humidity.setId("1");
-        HashSet humidities = new HashSet();
-        humidities.add(humidity);
-
-        given(humidityServiceImpl.getHumidity()).willReturn(Flux.fromIterable(humidities));
-
-        //when
-        String viewName = collectionOfDataController.getIndexPage(model);
-
-        //then
-        assertEquals("index", viewName);
-        verify(humidityServiceImpl, times(1)).getHumidity();
-        verify(model, times(1)).addAttribute(eq("humiditys"), any());
-
-    }
+//    @Mock
+//    Model model;
+//
+//    @Mock
+//    HumidityServiceImpl humidityServiceImpl;
+//
+//    @Mock
+//    TemperatureServiceImpl temperatureService;
+//
+//    CollectionOfDataController collectionOfDataController;
+//
+//    @BeforeEach
+//    public void setUp() {
+//        MockitoAnnotations.initMocks(this);
+//        collectionOfDataController = new CollectionOfDataController(humidityServiceImpl, temperatureService);
+//    }
+//
+//    @Test
+//    public void get_index_page() {
+////
+////        //Given
+////
+////        Humidity humidity = new Humidity();
+////        humidity.setId("1");
+////        HashSet humidities = new HashSet();
+////        humidities.add(humidity);
+////
+////        given(humidityServiceImpl.getHumidity()).willReturn(Flux.fromIterable(humidities));
+////
+////        //when
+////        String viewName = collectionOfDataController.getIndexPage(model);
+////
+////        //then
+////        assertEquals("index", viewName);
+////        verify(humidityServiceImpl, times(1)).getHumidity();
+////        verify(model, times(1)).addAttribute(eq("humiditys"), any());
+//
+//    }
 }

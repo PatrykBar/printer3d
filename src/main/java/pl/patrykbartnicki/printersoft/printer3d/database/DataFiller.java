@@ -140,7 +140,7 @@ public class DataFiller implements ApplicationListener<ContextRefreshedEvent> {
 
     private void loadHumidity(int numberOfHumidityData, int min, int max){
 
-        ArrayList<Humidity> humidityArrayList = new ArrayList<>();
+//        ArrayList<Humidity> humidityArrayList = new ArrayList<>();
 
         humidityRepository.deleteAll().subscribe();
 
@@ -149,7 +149,8 @@ public class DataFiller implements ApplicationListener<ContextRefreshedEvent> {
             int randomValue1 = random.nextInt((max-min)+1)+min;
             int randomValue2 = random.nextInt((max-min)+1)+min;
 
-                humidityRepository.insert(Mono.just(new Humidity(randomValue1, randomValue2))).
+                humidityRepository.insert(
+                        Mono.just(new Humidity(randomValue1, randomValue2))).
                         flatMap(humidityRepository::save).subscribe();
         }
 
