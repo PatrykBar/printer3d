@@ -19,22 +19,27 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	compileOnly 'org.projectlombok:lombok'
+	implementation 'junit:junit:4.12'
+	compile 'org.springframework.boot:spring-boot-starter-webflux'
+	compile 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 	testImplementation 'io.projectreactor:reactor-test'
 
-	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
-	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
-	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
-	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation group: 'org.webjars.npm', name: 'chart.js', version: '2.9.4'
+	compile group: 'org.thymeleaf.extras' , name: 'thymeleaf-extras-java8time', version: '2.1.0.RELEASE'
+
 }
 
 test {
 	useJUnitPlatform()
+}
+
+jar {
+	manifest {
+		attributes 'Printer3dApplication': 'pl.patrykbartnicki.printersoft.printer3d'
+	}
 }
