@@ -2,22 +2,24 @@ version: "3.8"
 
 services:
   printer3d:
-    image: printer3d
+    build: .
+    container_name: printer3d
     restart: always
     networks:
       - patryknetwork
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - mongo
 
   mongo:
     image: mongo
+    container_name: printer_mongo
     restart: always
     networks:
       - patryknetwork
     ports:
-      - 27017:27017
+      - "27017:27017"
 
 networks:
-  patryknetwork:mongo contaienr ls
+  patryknetwork:

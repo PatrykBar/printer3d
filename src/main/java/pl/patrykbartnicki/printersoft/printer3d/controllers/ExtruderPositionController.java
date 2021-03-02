@@ -17,7 +17,6 @@ import reactor.util.annotation.Nullable;
 public class ExtruderPositionController {
 
     private final ExtruderPositionServiceImpl extruderPositionService;
-    private WebDataBinder webDataBinder;
 
     @GetMapping("/getExtruderPositions")
     public String getExtruderPositions(Model model){
@@ -38,18 +37,9 @@ public class ExtruderPositionController {
     @PostMapping("/postPosition")
     public String setExtruderPosition(@ModelAttribute("Position") Position extruderPosition){
 
-//        webDataBinder.validate();
-//        BindingResult result = webDataBinder.getBindingResult();
-//
-//        if (result.hasErrors()){
-//            result.getAllErrors().forEach(objectError -> {log.debug(objectError.toString());});
-//            return "redirect:/400error";
-//        }else {
-
             extruderPositionService.setExtruderPosition(extruderPosition);
 
             return "extruderFiles/changePositionOk";
-//        }
     }
 
 }
