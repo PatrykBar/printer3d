@@ -32,12 +32,11 @@ public class DataFiller implements ApplicationListener<ContextRefreshedEvent> {
 //    @Autowired
 //    private TurnOffThePrinterRepository turnOffThePrinterRepository;
 
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        loadExtruderPosition(50, 200,1);
-        loadHumidity(1000, 20 , 80);
-        loadTemperature(1000, 20, 35);
+        loadExtruderPosition(10, 200,1);
+        loadHumidity(10, 20 , 80);
+        loadTemperature(10, 20, 35);
 //        loadLightStatus();
 //        loadPrinterStatus();
 
