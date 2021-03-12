@@ -5,6 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import pl.patrykbartnicki.printersoft.printer3d.TestcontainersAndDatabaseConfigForTests;
 import pl.patrykbartnicki.printersoft.printer3d.model.Humidity;
 import pl.patrykbartnicki.printersoft.printer3d.repositories.HumidityRepository;
 import reactor.core.publisher.Flux;
@@ -13,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
-class HumidityServiceImplTest {
+class HumidityServiceImplTest extends TestcontainersAndDatabaseConfigForTests {
 
     HumidityServiceImpl humidityService;
 

@@ -3,6 +3,10 @@ package pl.patrykbartnicki.printersoft.printer3d.model;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import pl.patrykbartnicki.printersoft.printer3d.TestcontainersAndDatabaseConfigForTests;
 import pl.patrykbartnicki.printersoft.printer3d.repositories.HumidityRepository;
 import reactor.core.publisher.Mono;
 
@@ -10,7 +14,8 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HumidityTest {
+
+class HumidityTest extends TestcontainersAndDatabaseConfigForTests {
 
     Humidity humidity;
 

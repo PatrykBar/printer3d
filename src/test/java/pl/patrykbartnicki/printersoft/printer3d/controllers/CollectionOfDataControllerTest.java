@@ -1,6 +1,5 @@
 package pl.patrykbartnicki.printersoft.printer3d.controllers;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
-public class CollectionOfDataControllerTest{
+public class CollectionOfDataControllerTest extends TestcontainersAndDatabaseConfigForTests{
 
     @Mock
     Model model;
@@ -31,16 +30,10 @@ public class CollectionOfDataControllerTest{
 
     CollectionOfDataController collectionOfDataController;
 
-    private static TestcontainersAndDatabaseConfigForTests testcontainersAndDatabaseConfigForTests =
-            new TestcontainersAndDatabaseConfigForTests();
-
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         collectionOfDataController = new CollectionOfDataController(humidityServiceImpl, temperatureService);
-
-        testcontainersAndDatabaseConfigForTests.startContainers();
-        testcontainersAndDatabaseConfigForTests.setNameOfContainers("CollectionOfDataController");
     }
 
     @Test
@@ -61,10 +54,5 @@ public class CollectionOfDataControllerTest{
         assertEquals("index", viewName);
         verify(humidityServiceImpl, times(1)).getHumidity();
         verify(model, times(1)).addAttribute(eq("humiditys"), any());
-    }
-
-    @AfterAll
-    static void afterAll() {
-        testcontainersAndDatabaseConfigForTests.stopContainers();
     }
 }

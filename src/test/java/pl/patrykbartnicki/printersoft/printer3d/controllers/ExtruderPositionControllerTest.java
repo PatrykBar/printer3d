@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
+import pl.patrykbartnicki.printersoft.printer3d.TestcontainersAndDatabaseConfigForTests;
 import pl.patrykbartnicki.printersoft.printer3d.model.Position;
 import pl.patrykbartnicki.printersoft.printer3d.service.ExtruderPositionServiceImpl;
 import reactor.core.publisher.Flux;
@@ -17,8 +18,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-
-class ExtruderPositionControllerTest {
+class ExtruderPositionControllerTest extends TestcontainersAndDatabaseConfigForTests {
 
     @Mock
     ExtruderPositionServiceImpl extruderPositionService;
