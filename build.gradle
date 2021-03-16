@@ -21,20 +21,22 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'junit:junit:4.12'
-	compile 'org.springframework.boot:spring-boot-starter-webflux'
-	compile 'org.projectlombok:lombok'
-	compile 'org.springframework.boot:spring-boot-starter-data-redis:2.0.4.RELEASE'
-	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:2.0.4.RELEASE'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'junit:junit:4.12'
+	compile 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
 
 	def junitJupiterVersion = '5.4.2'
+	def testContainerVersion = '1.15.2'
 	testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
 	testCompile "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
 	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
-	testCompile "org.testcontainers:testcontainers:1.15.2"
-	testCompile "org.testcontainers:junit-jupiter:1.15.2"
-	testCompile "org.testcontainers:mongodb:1.15.2"
+	testCompile "org.testcontainers:testcontainers:$testContainerVersion"
+	testCompile "org.testcontainers:junit-jupiter:$testContainerVersion"
+	testCompile "org.testcontainers:mongodb:$testContainerVersion"
 
 	implementation group: 'org.webjars.npm', name: 'chart.js', version: '2.9.4'
 	compile group: 'org.thymeleaf.extras' , name: 'thymeleaf-extras-java8time', version: '2.1.0.RELEASE'
@@ -43,10 +45,4 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-}
-
-jar {
-	manifest {
-		attributes 'Printer3dApplication': 'pl.patrykbartnicki.printersoft.printer3d'
-	}
 }

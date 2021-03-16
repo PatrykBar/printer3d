@@ -9,7 +9,7 @@ services:
     networks:
       - patryknetwork
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on:
       - mongodb
 
@@ -20,7 +20,7 @@ services:
     networks:
       - patryknetwork
     ports:
-      - "27017:27017"
+      - 27017:27017
     volumes:
       - db-printer:/build/libs/mongodb/data
 
