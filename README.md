@@ -15,4 +15,4 @@ Technologies used:
 - Docker
 
 Technologies which i would like to introduce into project
--Circle Ci
+- Circle Ci
