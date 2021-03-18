@@ -15,6 +15,4 @@ Technologies used:
 - JUnit tests
 - Testcontainer
 - Docker
-
-Technologies which i would like to introduce into project
 - Circle Ci
