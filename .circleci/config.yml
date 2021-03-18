@@ -39,9 +39,6 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run:
-          name: Build project with test coverage
-          command: ./gradlew build jacocoTestReport
 
       - run:
           name: Save test results
