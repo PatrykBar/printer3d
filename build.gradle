@@ -46,9 +46,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-
-jar {
-	manifest {
-		attributes 'Printer3dApplication': 'pl.patrykbartnicki.printersoft.printer3d'
-	}
-}
