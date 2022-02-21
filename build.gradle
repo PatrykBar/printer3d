@@ -21,13 +21,22 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:2.0.4.RELEASE'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'junit:junit:4.12'
-	compile 'org.springframework.boot:spring-boot-starter-webflux'
 	compile 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
-	testImplementation 'io.projectreactor:reactor-test'
+
+
+	def junitJupiterVersion = '5.4.2'
+	def testContainerVersion = '1.15.2'
+	testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+	testCompile "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+	testCompile "org.testcontainers:testcontainers:$testContainerVersion"
+	testCompile "org.testcontainers:junit-jupiter:$testContainerVersion"
+	testCompile "org.testcontainers:mongodb:$testContainerVersion"
 
 	implementation group: 'org.webjars.npm', name: 'chart.js', version: '2.9.4'
 	compile group: 'org.thymeleaf.extras' , name: 'thymeleaf-extras-java8time', version: '2.1.0.RELEASE'
