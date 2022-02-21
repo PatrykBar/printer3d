@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.js"-->
+<!--            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>-->
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"-->
+<!--            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>-->
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"-->
+<!--            integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>-->
+
+    <title>Temperature table</title>
+</head>
+<body>
+
+<header>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-info">
+        <a class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-menu-up" viewBox="0 0 16 16">
+            <path d="M7.646 15.854a.5.5 0 0 0 .708 0L10.207 14H14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3.793l1.853 1.854zM1 9V6h14v3H1zm14 1v2a1 1 0 0 1-1 1h-3.793a1 1 0 0 0-.707.293l-1.5 1.5-1.5-1.5A1 1 0 0 0 5.793 13H2a1 1 0 0 1-1-1v-2h14zm0-5H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2zM2 11.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0-.5.5zm0-4a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11a.5.5 0 0 0-.5.5zm0-4a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1h-6a.5.5 0 0 0-.5.5z"/>
+        </svg>
+            Temperature Table</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" th:href="@{/index}">Main page<span class="sr-only">(current)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                            <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+    <main>
+        <div class="container border" style="margin-top 20px">
+            <div class="row">
+                <div class="col">
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Data</h1>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="table-responsive" th:if="${not #lists.isEmpty(temperatures)}">
+                                <table class="table table-bordered">
+                                    <thead class="thead-inverse">
+
+                                    <tr>
+                                        <th>Time of measurement</th>
+                                        <th>Temperature of Nozzle</th>
+                                        <th>Temperature of table</th>
+                                        <th>Temperature into workspace</th>
+                                    </tr>
+                                    <tr th:each="temperature : ${temperatures}">
+                                        <td th:text="${temperature.localTime}">Temp. of nozzle</td>
+                                        <td th:text="${temperature.temperatureOfNozzle}">Temp. of nozzle</td>
+                                        <td th:text="${temperature.temperatureOfTable}">Temp. of table</td>
+                                        <td th:text="${temperature.temperatureOfWorkspace}">Temp. into Workspace</td>
+                                    </tr>
+
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

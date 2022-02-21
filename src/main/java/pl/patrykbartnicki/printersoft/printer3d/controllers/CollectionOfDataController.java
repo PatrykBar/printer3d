@@ -1,43 +1,25 @@
 package pl.patrykbartnicki.printersoft.printer3d.controllers;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import pl.patrykbartnicki.printersoft.printer3d.model.TimeStarter;
-
-import java.time.LocalDateTime;
-
+import org.springframework.web.bind.annotation.*;
+import pl.patrykbartnicki.printersoft.printer3d.service.HumidityServiceImpl;
+import pl.patrykbartnicki.printersoft.printer3d.service.TemperatureServiceImpl;
 
 @Controller
-@AllArgsConstructor
-public class CollectionOfDataController extends TimeStarter {
+@RequiredArgsConstructor
+public class CollectionOfDataController{
 
-    // collection of all data for main control panel
-    private ExtruderPositionController extruderPositionController;
-    private HumiditiController humiditiController;
-    private LightInWorkspaceController lightInWorkspaceController;
-    private TemperatureController temperatureController;
-    private TurnOffThePrinterController turnOffThePrinterController;
+    private final HumidityServiceImpl humidityService;
+    private final TemperatureServiceImpl temperatureService;
 
+    @GetMapping({"", "/", "/index"})
+    public String getIndexPage(Model model){
 
-    @GetMapping("/hello")
-    public String get(Model model){
-
-        model.addAttribute("extruderPosition", extruderPositionController.get());
-        model.addAttribute("humidity", humiditiController.get());
-        model.addAttribute("lightStatus", lightInWorkspaceController.get());
-        model.addAttribute("temperatures", temperatureController.get());
-        model.addAttribute("turnOffThePrinter" ,turnOffThePrinterController.get());
-        model.addAttribute("time", new TimeStarter() {
-            @Override
-            public LocalDateTime getLocalTime() {
-                return super.getLocalTime();
-            }
-        });
-
+        model.addAttribute("humiditys", humidityService.getHumidity());
+        model.addAttribute("temperature", temperatureService.getTemperatures());
         return "index";
     }
-
 
 }

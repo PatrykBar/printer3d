@@ -1,23 +1,41 @@
 package pl.patrykbartnicki.printersoft.printer3d.controllers;
 
-import lombok.AllArgsConstructor;
-import org.springframework.http.MediaType;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import pl.patrykbartnicki.printersoft.printer3d.model.Temperatures;
-import pl.patrykbartnicki.printersoft.printer3d.repositories.TemperaturesRepository;
+import pl.patrykbartnicki.printersoft.printer3d.model.Temperature;
+import pl.patrykbartnicki.printersoft.printer3d.service.TemperatureServiceImpl;
 import reactor.core.publisher.Flux;
 
-@RestController
-@AllArgsConstructor
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+@RequiredArgsConstructor
 public class TemperatureController {
 
-    private TemperaturesRepository temperaturesRepository;
+    private final TemperatureServiceImpl temperatureService;
 
-    @GetMapping(produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public Flux<Temperatures> get(){
-        return temperaturesRepository.findAll();
+//    @GetMapping(value = "/temp/show")
+//    public Flux<Temperatures> get(){
+//        return temperatureService.getTemperatures();
+//    }
+
+    @GetMapping("/temperatures/showTable")
+    public String getTemperaturesForTable(Model model){
+
+        model.addAttribute("temperatures", temperatureService.getTemperatures());
+
+        return "temperatureFiles/tempTable";
     }
 
+    @GetMapping("/temperatures/showChart")
+    public String getTemperaturesForChart(Model model){
+
+        model.addAttribute("temperatures", temperatureService.getTemperatures());
+
+        return "temperatureFiles/tempChart";
+    }
 
 }
